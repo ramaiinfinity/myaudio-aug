@@ -13,10 +13,11 @@ import librosa
 import soundfile as sf
 
 aug = Compose([
-    AddGaussianNoise(min_amplitude=0.001, max_amplitude=0.015, p=0.5),
-    TimeStretch(min_rate=0.8, max_rate=1.25, p=1), #slow fast
-    PitchShift(min_semitones=-10, max_semitones=10, p=1),
-    Shift(min_fraction=-0.5, max_fraction=0.5, p=0.5),
+    # AddGaussianNoise(min_amplitude=0.001, max_amplitude=0.015, p=0.5),
+    # TimeStretch(min_rate=0.8, max_rate=1.25, p=1), #slow fast
+    # PitchShift(min_semitones=-10, max_semitones=10, p=1),
+    PitchShift(min_semitones=12, max_semitones=12, p=1),
+    # Shift(min_fraction=-0.5, max_fraction=0.5, p=0.5),
 ])
 
 # # Generate 2 seconds of dummy audio for the sake of example
@@ -26,7 +27,7 @@ aug = Compose([
 # augmented_samples = augment(samples=samples, sample_rate=16000)
 
 if __name__ == "__main__":
-    file_path = "/home/****/workshop/audio-augmentation/myaudio-aug/audio_files/combined_good_data.mp3"
+    file_path = "/home/aiinfinityram/workshop/audio-augmentation/myaudio-aug/audio_files/combined_good_data.mp3"
 
     #get file name
     dirname, file_name = os.path.split(file_path)
